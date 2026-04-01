@@ -3,9 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I feel too deep of longing</title>
+    <title>I Feel Too Deep of Longing</title>
+    
+    <!-- Mengimpor Google Fonts -->
+    <link href="https://googleapis.com" rel="stylesheet">
 
     <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --accent-color: rgba(255, 255, 255, 0.8);
+            --text-dim: #888;
+        }
+
         body {
             margin: 0;
             padding: 0;
@@ -20,89 +29,112 @@
             overflow-x: hidden;
         }
 
-        /* Iklan diposisikan agar tidak merusak estetika */
-        .ad-banner {
-            margin-bottom: 20px;
-            opacity: 0.7;
-            transition: opacity 0.3s;
+        /* Iklan Placeholder - Diposisikan rapi */
+        .ad-container {
+            width: 100%;
+            max-width: 728px;
+            margin: 20px 0;
+            min-height: 90px;
+            display: flex;
+            justify-content: center;
+            z-index: 10;
         }
-        .ad-banner:hover { opacity: 1; }
 
         .container {
             width: 90%;
-            max-width: 800px;
+            max-width: 700px;
             text-align: center;
-            animation: fadeIn 1.5s ease-in-out;
+            z-index: 2;
         }
 
-        .video-wrapper {
+        .video-card {
             position: relative;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 15px;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s ease;
-        }
-
-        .video-wrapper:hover {
-            transform: scale(1.01);
+            border-radius: 24px;
+            padding: 12px;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
+            animation: float 6s ease-in-out infinite, fadeIn 2s ease-out;
         }
 
         video {
             width: 100%;
-            border-radius: 12px;
+            border-radius: 16px;
             display: block;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            outline: none;
+        }
+
+        .content-info {
+            margin-top: 35px;
+            animation: fadeIn 2.5s ease-in-out;
         }
 
         .title-text {
-            margin-top: 30px;
             font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
+            font-size: 2.2rem;
+            font-weight: 400;
             letter-spacing: 1px;
-            color: rgba(255, 255, 255, 0.9);
-            text-shadow: 0 2px 10px rgba(255,255,255,0.2);
+            margin-bottom: 8px;
+            background: linear-gradient(to bottom, #fff, #aaa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .subtitle {
-            font-size: 0.9rem;
-            color: #666;
-            margin-top: 5px;
+            font-size: 1rem;
+            color: var(--text-dim);
             font-style: italic;
+            letter-spacing: 2px;
+            font-weight: 300;
         }
 
+        /* Animasi */
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Responsif untuk HP */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Responsif HP */
         @media (max-width: 600px) {
-            .title-text { font-size: 1.4rem; }
+            .title-text { font-size: 1.6rem; }
+            .subtitle { font-size: 0.85rem; }
+            .video-card { padding: 8px; }
         }
     </style>
 </head>
 <body>
 
-<script async="async" data-cfasync="false" src="https://hypothesisgarden.com/c41a23ff90a4cb9a439bd54b5d951bc3/invoke.js"></script>
-<div id="container-c41a23ff90a4cb9a439bd54b5d951bc3"></div>
-
+    <!-- Area Iklan Atas -->
+    <div class="ad-container">
+        <script async="async" data-cfasync="false" src="https://hypothesisgarden.com"></script>
+        <div id="container-c41a23ff90a4cb9a439bd54b5d951bc3"></div>
+    </div>
 
     <div class="container">
-        <div class="video-wrapper">
+        <div class="video-card">
             <video controls poster="" preload="metadata">
-                <source src="https://cdn2.videy.co/YuRt4Eow1.mp4" type="video/mp4">
+                <source src="https://videy.co" type="video/mp4">
                 Browser Anda tidak mendukung video HTML5.
             </video>
         </div>
         
-        <div class="title-text">I feel too deep of longing</div>
-        <div class="subtitle">Sebuah kerinduan yang tak terucap...</div>
+        <div class="content-info">
+            <h1 class="title-text">I feel too deep of longing</h1>
+            <p class="subtitle">Sebuah kerinduan yang tak terucap...</p>
+        </div>
     </div>
 
-
+    <!-- Area Iklan Bawah (Opsional) -->
+    <div class="ad-container" style="margin-top: 50px; opacity: 0.5;">
+        <!-- Tempat iklan tambahan jika perlu -->
+    </div>
 
 </body>
 </html>
